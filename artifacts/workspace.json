@@ -1,0 +1,17 @@
+{
+  "root": "/home/dev/feedback/uid19919",
+  "B": "/home/dev/feedback/uid19919",
+  "sha": "07adef44b00a9765e9bdb92c4e6f3772debc83c2",
+  "wslDistro": "Ubuntu-26.04",
+  "source": {
+    "owner": "sailfishos-mirror",
+    "repo": "cairo",
+    "sha": "07adef44b00a9765e9bdb92c4e6f3772debc83c2"
+  },
+  "fork": {
+    "owner": "Rrr119",
+    "repo": "cairo",
+    "cloneUrl": "https://github.com/Rrr119/cairo.git"
+  },
+  "at": "2026-11-15T08:58:17.848Z"
+}

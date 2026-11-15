@@ -467,6 +467,17 @@ if feature_conf.get('CAIRO_HAS_XCB_SURFACE', 0) == 1
   endif
 endif
 
+vulkan_dep = dependency('vulkan', required: get_option('vulkan'))
+if vulkan_dep.found()
+  feature_conf.set('CAIRO_HAS_VULKAN_SURFACE', 1)
+  deps += [vulkan_dep]
+  built_features += [{
+    'name': 'cairo-vulkan',
+    'description': 'Vulkan surface backend',
+    'deps': [vulkan_dep],
+  }]
+endif
+
 if host_machine.system() == 'darwin' and not get_option('quartz').disabled()
   quartz_deps = dependency('appleframeworks', modules : ['CoreFoundation', 'ApplicationServices'], required: get_option('quartz'))
 
@@ -839,6 +850,7 @@ else
 endif
 
 subdir('util')
+subdir('examples')
 
 if not get_option('tests').disabled() and feature_conf.get('CAIRO_HAS_PNG_FUNCTIONS', 0) == 1
   subdir('test')
@@ -874,6 +886,7 @@ summary({
         'Observer': true,
         'Mime': true,
         'Tee': feature_conf.get('CAIRO_HAS_TEE_SURFACE', 0) == 1,
+        'Vulkan': feature_conf.get('CAIRO_HAS_VULKAN_SURFACE', 0) == 1,
         'Xlib': feature_conf.get('CAIRO_HAS_XLIB_SURFACE', 0) == 1,
         'Xlib Xrender': feature_conf.get('CAIRO_HAS_XLIB_XRENDER_SURFACE', 0) == 1,
         'Quartz': feature_conf.get('CAIRO_HAS_QUARTZ_SURFACE', 0) == 1,

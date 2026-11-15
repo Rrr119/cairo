@@ -663,6 +663,18 @@ exe = executable('cairo-test-suite', [cairo_test_suite_sources, test_sources, ca
     libpdiff_dep],
 )
 
+if feature_conf.get('CAIRO_HAS_VULKAN_SURFACE', 0) == 1
+  vulkan_surface_test = executable('vulkan-surface',
+    'vulkan-surface.c',
+    include_directories: [incbase],
+    dependencies: deps + test_deps + [libcairo_dep],
+  )
+  test('vulkan-surface', vulkan_surface_test,
+    timeout: 120,
+    suite: ['cairo-vulkan'],
+  )
+endif
+
 fs = import('fs')
 build_dir_files = ['completion.bash', 'index.html', 'testtable.js', 'view-test-results.py']
 foreach file : build_dir_files

@@ -132,6 +132,14 @@ system pixman.
 
 - [XCB](https://xcb.freedesktop.org)
 
+#### Vulkan backend
+
+- [Vulkan](https://www.vulkan.org) loader and headers
+- A Vulkan 1.0 compute-capable device at runtime
+
+Vulkan path fills, gradients, and clipping are rasterized with a compute
+shader. See [`doc/vulkan-backend.md`](./doc/vulkan-backend.md) for details.
+
 ### Font backends (required)
 
 #### freetype font backend

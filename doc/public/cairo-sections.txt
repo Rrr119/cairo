@@ -229,6 +229,16 @@ cairo_svg_unit_t
 </SECTION>
 
 <SECTION>
+<FILE>cairo-vulkan</FILE>
+CAIRO_HAS_VULKAN_SURFACE
+cairo_vulkan_surface_create
+cairo_vulkan_surface_get_width
+cairo_vulkan_surface_get_height
+cairo_vulkan_surface_get_stride
+cairo_vulkan_surface_get_data
+</SECTION>
+
+<SECTION>
 <FILE>cairo-device</FILE>
 cairo_device_t
 cairo_device_reference

@@ -63,6 +63,10 @@ CAIRO_MUTEX_DECLARE (_cairo_xlib_display_mutex)
 CAIRO_MUTEX_DECLARE (_cairo_xcb_connections_mutex)
 #endif
 
+#if CAIRO_HAS_VULKAN_SURFACE
+CAIRO_MUTEX_DECLARE (_cairo_vulkan_mutex)
+#endif
+
 #if !defined (HAS_ATOMIC_OPS) || defined (ATOMIC_OP_NEEDS_MEMORY_BARRIER)
 CAIRO_MUTEX_DECLARE (_cairo_atomic_mutex)
 #endif
